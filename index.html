@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="./icons/favicon.png" sizes="any" />
+    <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/animations.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>KF.Ural</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <h1 class="header__title">
+        Инструкция по&nbsp;настройке выделенного сервера Killing Floor
+        на&nbsp;Ubuntu&nbsp;22.04
+      </h1>
+    </header>
+    <main class="cards">
+      <section class="card">
+        <h2 class="card__title">Предисловие</h2>
+        <div class="card_text">
+          <p class="card__paragraph">
+            Для работы я&nbsp;возьму ноутбук с&nbsp;Windows&nbsp;10. Можно
+            использовать любую ОС, теоретически даже Android,
+            но&nbsp;в&nbsp;Windows 10/11 из&nbsp;коробки есть ssh-клиент,
+            поэтому я&nbsp;буду пользоваться&nbsp;им.
+          </p>
+          <p class="card__paragraph">
+            Так&nbsp;же нужно иметь ввиду, что придётся приобрести лицензионную
+            версию Killing Floor в&nbsp;Steam, т.к.&nbsp;по&nbsp;другому скачать
+            официальный сервер не&nbsp;получиться.
+          </p>
+          <p class="card__paragraph">
+            Ещё расходы&nbsp;&mdash; оплата VDS. Сильно крутой сервер нам
+            не&nbsp;понадобится, вполне хватит 1&nbsp;ядра 1&nbsp;Гб оперативной
+            памяти. Мне это обошлось примерно в&nbsp;3000р за&nbsp;год.
+          </p>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Создание VDS</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            Первым этапом будет регистрация у&nbsp;хостера (с&nbsp;этим
+            я&nbsp;думаю вы справитесь самостоятельно) и&nbsp;подключение VDS.
+          </p>
+          <p class="card__paragraph">
+            Для тех кто не&nbsp;знает, VDS это виртуальный выделенный сервер.
+            Компьютер в&nbsp;интернете, на&nbsp;который мы&nbsp;установим наш
+            сервер для Killing Floor.
+          </p>
+          <p class="card__paragraph">
+            Я&nbsp;буду использовать хостинг
+            <a
+              href="https://netangels.ru/?p_ref=u78259"
+              target="_blank"
+              class="card__link"
+              >netangels.ru</a
+            >.
+          </p>
+          <p class="card__paragraph">
+            Предположу, что вы&nbsp;уже зарегистрировались на&nbsp;хостинге.
+            Теперь нужно подключить VDS. В&nbsp;панели управления хостингом
+            выбираем вкладку VDS и жмём &laquo;Виртуальные машины&raquo;. Затем
+            выбираем &laquo;Создать виртуальную машину&raquo;. Нам хватит тарифа
+            &laquo;Start-2&raquo; (расположен на&nbsp;вкладке &laquo;Стартовые
+            тарифы&raquo;). Нажмём на&nbsp;нём кнопку &laquo;Выбрать&raquo;.
+            Дальше я отключил резервное копирование, чтобы меньше платить
+            за&nbsp;VDS. Это не обязательно, если хотите можете оставить эту
+            опцию включенной. Теперь нужно выбрать какая&nbsp;ОС будет
+            установлена. По&nbsp;умолчанию выбрана Ubuntu&nbsp;22.04 Jammy LAMP,
+            а&nbsp;нам нужно выбрать u&nbsp;22.04 Jammy (без LAMP). LAMP это
+            набор сервисов предназначенный, грубо говоря, для создания сайтов.
+            Для нас он&nbsp;будет лишним. После того, как мы выбрали тариф
+            и&nbsp;указали нужную нам операционную систему, нажимаем
+            &laquo;Создать сервер&raquo;. Теперь нужно подождать несколько минут
+            и&nbsp;наш сервер будет создан, а&nbsp;на&nbsp;почту придут
+            реквизиты доступа: ip&nbsp;адрес, логин и&nbsp;пароль.
+          </p>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/vds_add_1.png"
+              alt="Создание VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_add_2.png"
+              alt="Создание VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_add_3.png"
+              alt="Создание VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_add_4.png"
+              alt="Создание VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_add_5.png"
+              alt="Создание VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_add_6.png"
+              alt="Создание VDS"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Настройка доступа к&nbsp;VDS</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            Итак, мы&nbsp;создали VDS и&nbsp;получили реквизиты доступа. Теперь
+            нам нужно настроить удобный доступ к&nbsp;серверу.
+          </p>
+          <p class="card__paragraph">
+            Первым делом скачаем и&nbsp;установим программу
+            <a href="https://winscp.net" target="_blank" class="card__link"
+              >WinSCP</a
+            >, она сильно облегчит нам работу, так как позволит работать
+            с&nbsp;файлами через знакомый нам интерфейс, а&nbsp;не&nbsp;через
+            терминал.
+          </p>
+          <p class="card__paragraph">
+            После установки WinSCP запустите&nbsp;её. Сразу после запуска перед
+            нами появится окно управления подключениями. Выберите &laquo;Новый
+            сайт&raquo;, параметры подключения следующие: протокол&nbsp;&mdash;
+            SFTP; хост&nbsp;&mdash; ip&nbsp;адрес вашего сервера; имя
+            пользователя&nbsp;&mdash; root; пароль&nbsp;&mdash; из&nbsp;письма
+            в&nbsp;почте.
+          </p>
+          <p class="card__paragraph">
+            Нажмите кнопку &laquo;Сохранить&raquo;, затем отметьте пункт
+            &laquo;Сохранить пароль&raquo;, чтобы не&nbsp;вводить пароль каждый
+            раз, и&nbsp;нажмите &laquo;OK&raquo;.
+          </p>
+          <p class="card__paragraph">
+            Теперь наш сервер появился в&nbsp;списке подключений
+            и&nbsp;в&nbsp;будущем мы сможем быстро подключиться к&nbsp;нему для
+            работы с&nbsp;файлами.
+          </p>
+          <p class="card__paragraph">
+            Теперь настроим подключение по&nbsp;ssh.
+          </p>
+          <p class="card__paragraph">
+            Открываем окно &laquo;Выполнить&raquo; нажатием клавиш Win + R.
+            В&nbsp;окне &laquo;Выполнить пишем&raquo;:
+          </p>
+          <pre class="card__code-block">powershell</pre>
+          <p>Когда откроется окно powershell напишите в&nbsp;нём команду:</p>
+          <pre class="card__code-block">ssh-keygen -t ed25519</pre>
+          <p>
+            На&nbsp;все вопросы просто нажимайте Enter, всего нужно будет нажать
+            три раза.
+          </p>
+          <p class="card__paragraph">
+            После этого сгенерируется ваш ssh-ключ. Теперь нам нужно скопировать
+            этот ключ на&nbsp;сервер, чтобы мы&nbsp;могли без пароля
+            подключаться по&nbsp;ssh.
+          </p>
+          <p class="card__paragraph">
+            Открываем WinSCP, если закрыли, и&nbsp;подключаемся к&nbsp;нашему
+            серверу.
+          </p>
+          <p class="card__paragraph">
+            При первом подключении нас спросят сохранить&nbsp;ли ключ
+            неизвестного сервера, жмём &laquo;Да&raquo;.
+          </p>
+          <p class="card__paragraph">
+            В&nbsp;правой половине окна у&nbsp;нас открылась файловая структура
+            нашего сервера. Мы&nbsp;находимся в&nbsp;папке
+            <span class="card__accent">root</span>. Для добавления нашего
+            ssh-ключа в&nbsp;список доверенных, нужно создать папку
+            <span class="card__accent">.ssh</span>. Точка перед буквами
+            обязательна. Чтобы создать папку нажмите правой кнопкой мыши на
+            пустом месте в&nbsp;правом окне и&nbsp;выберите
+            Создать&rarr;Директорию. В открывшемся окне напишите название
+            директории <span class="card__accent">.ssh</span> и&nbsp;нажмите OK.
+            Теперь перейдите в&nbsp;созданную директорию и&nbsp;создайте там
+            файл <span class="card__accent">authorized_keys</span>. Чтобы
+            сделать это, нужно так&nbsp;же нажать правой кнопкой мыши
+            на&nbsp;пустом месте правого окна и&nbsp;выбрать Создать&rarr;Файл.
+            В следующем окне введите название файла
+            <span class="card__accent">authorized_keys</span>. После нажатия
+            OK&nbsp;откроется блокнот в&nbsp;который нужно будет скопировать наш
+            shh ключ, его пока не&nbsp;закрыайте. Ключ находится в&nbsp;файле
+            <span class="card__accent"
+              >C:\Users\{Ваш пользователь}\.ssh\id_ed25519.pub</span
+            >. Откройте его блокнотом, скопируйте всё его содержимое
+            и&nbsp;вставьте в&nbsp;открытый файл
+            <span class="card__accent">authorized_keys</span>. Не&nbsp;забудьте
+            сохранить файл. Теперь мы&nbsp;можем подключаться к&nbsp;серверу
+            по&nbsp;ssh с&nbsp;помощью ключа.
+          </p>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/vds_access_setup_1.png"
+              alt="Настройка доступа к VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_access_setup_2.png"
+              alt="Настройка доступа к VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_access_setup_3.png"
+              alt="Настройка доступа к VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_access_setup_4.png"
+              alt="Настройка доступа к VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_access_setup_5.png"
+              alt="Настройка доступа к VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_access_setup_6.png"
+              alt="Настройка доступа к VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_access_setup_7.png"
+              alt="Настройка доступа к VDS"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/vds_access_setup_8.png"
+              alt="Настройка доступа к VDS"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Установка дополнительного&nbsp;ПО</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            Для работы сервера Killing Floor нам потребуется установить
+            несколько дополнительных программ.
+          </p>
+          <ul class="card__list">
+            <li>
+              chrony&nbsp;&mdash; для отображения времени на&nbsp;сервере
+              в&nbsp;вашем часовом поясе
+            </li>
+            <li>
+              apache2&nbsp;&mdash; для быстрой загрузки карт
+              и&nbsp;дополнительных файлов игрокам
+            </li>
+            <li>
+              software-properties-common&nbsp;&mdash; для установки steamcmd
+            </li>
+            <li>steamcmd&nbsp;&mdash; для скачивания сервера Killing Floor</li>
+          </ul>
+          <p class="card__paragraph">
+            Открываем powershell (так&nbsp;же как делали на&nbsp;прошлом этапе)
+            и&nbsp;пишем команду
+          </p>
+          <pre class="card__code-block">ssh root@{IP_вашего_сервера}</pre>
+          <p>
+            При первом подключении нужно будет согласиться с&nbsp;сохранением
+            ключа сервера, напишите <span class="card__accent">yes</span> и
+            нажмите Enter.
+          </p>
+          <p class="card__paragraph">
+            Готово. Вы&nbsp;подключились к&nbsp;вашему серверу по&nbsp;SSH.
+          </p>
+          <p class="card__paragraph">
+            Теперь займёмся установкой необходимых программ. Напишите следующие
+            команды:
+          </p>
+          <pre class="card__code-block">
+apt update; apt upgrade -y; apt install chrony apache2 software-properties-common -y; add-apt-repository multiverse; dpkg --add-architecture i386; apt update; apt install steamcmd -y;</pre
+          >
+          <p class="card__paragraph">
+            При установке chrony появится окно в&nbsp;котором нужно будет
+            выбрать ваш часовой пояс.
+          </p>
+          <p class="card__paragraph">
+            При добавлении репозитория со&nbsp;steamcmd нужно будет подтвердить
+            добавление нажатием Enter;
+          </p>
+          <p class="card__paragraph">
+            При установке steamcmd нужно будет принять лицензионное соглашение.
+          </p>
+          <p class="card__paragraph">
+            Когда все установки закончатся, перезагрузите сервер командой:
+          </p>
+          <pre class="card__code-block">reboot</pre>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/soft_setup_1.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/soft_setup_2.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/soft_setup_3.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/soft_setup_4.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/soft_setup_5.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/soft_setup_6.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/soft_setup_7.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/soft_setup_8.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/soft_setup_9.png"
+              alt="Установка дополнительного ПО"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Создание пользователя для Killing Floor</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            Не&nbsp;рекомендуется работать с&nbsp;сервером из&nbsp;учетной
+            записи root, поэтому на&nbsp;этом этапе мы&nbsp;создадим отдельную
+            учётную запись.
+          </p>
+          <p class="card__paragraph">
+            Подключитесь к&nbsp;серверу через powershell, как мы&nbsp;делали это
+            раньше и введите команду:
+          </p>
+          <pre class="card__code-block">useradd kf-user -m</pre>
+          <p>
+            useradd это команда которая создаст нового пользователя, kf-user это
+            имя этого пользователя, а ключ -m означает что для нового
+            пользователя будет создана отдельная домашняя директория.
+          </p>
+          <p class="card__paragraph">
+            Затем зададим новому пользователю пароль командой:
+          </p>
+          <pre class="card__code-block">passwd kf-user</pre>
+          <p>
+            Нас два раза попросят ввести новый пароль. Старайтесь придумать
+            надёжный пароль и&nbsp;обязательно его запомните. Когда будете
+            вводить пароль, введённые символы не&nbsp;будут появляться
+            на&nbsp;экране, так и должно быть, пусть это не&nbsp;сбивает вас
+            с&nbsp;толку.
+          </p>
+          <p class="card__paragraph">
+            Теперь нужно установить новому пользователю командную оболочку bash.
+            Сделаем это командой:
+          </p>
+          <pre class="card__code-block">usermod -s /usr/bin/bash kf-user</pre>
+          <p class="card__paragraph">
+            Новый пользователь создан, пароль установлен, оболочка задана,
+            осталось добавить его в&nbsp;WinSCP и&nbsp;добавить наш ssh-key.
+          </p>
+          <p class="card__paragraph">
+            Добавление в&nbsp;WinSCP происходит также как мы&nbsp;делали
+            в&nbsp;начале этой инструкции, только вместо ползователя
+            <span class="card__accent">root</span> мы&nbsp;напишем
+            <span class="card__accent">kf-user</span>, и вместо пароля
+            из&nbsp;письма напишем пароль, который только что придумали для
+            kf-user.
+          </p>
+          <p class="card__paragraph">
+            Чтобы добавить наш ssh-key пользователю kf-user нужно подключиться к
+            серверу через WinSCP под пользователем root и&nbsp;скопировать папку
+            <span class="card__accent">.ssh</span> в&nbsp;папку
+            <span class="card__accent">/home/kf-user</span>.
+          </p>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/user_add_1.png"
+              alt="Создание пользователя Ubuntu"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/user_add_2.png"
+              alt="Создание пользователя Ubuntu"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/user_add_3.png"
+              alt="Создание пользователя Ubuntu"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/user_add_4.png"
+              alt="Создание пользователя Ubuntu"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Установка сервера Killing Floor</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            Подключитесь к&nbsp;серверу через powershell под пользователем
+            kf-user.
+          </p>
+          <p class="card__paragraph">Запустите steamcmd командой:</p>
+          <pre class="card__code-block">steamcmd</pre>
+          <p class="card__paragraph">
+            Войдите в&nbsp;свой аккаунт steam командой:
+          </p>
+          <pre class="card__code-block">login user password</pre>
+          <p>
+            <span class="card__accent">user</span> нужно заменить на&nbsp;ваш
+            логин в&nbsp;steam а&nbsp;<span class="card__accent">password</span>
+            на&nbsp;ваш пароль. Если у вас подключен Steam Guard, вас
+            дополнительно попросят ввести код подтверждения.
+          </p>
+          <p class="card__paragraph">
+            Если всё зависло на&nbsp;строчке
+            <span class="card__accent">Waiting for user info...</span>
+            попробуйте несколько раз нажать Enter.
+          </p>
+          <p class="card__paragraph">
+            Теперь, когда вы&nbsp;зашли в&nbsp;свой аккаунт Steam, нужно скачать
+            сервер Killing Floor. Для этого введите команду:
+          </p>
+          <pre class="card__code-block">app_update 215360</pre>
+          <p class="card__paragraph">
+            Когда загрузка завершится, выйдите из&nbsp;steamcmd командой:
+          </p>
+          <pre class="card__code-block">exit</pre>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/killing_floor_setup_1.png"
+              alt="Установка сервера Killing Floor"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/killing_floor_setup_2.png"
+              alt="Установка сервера Killing Floor"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/killing_floor_setup_3.png"
+              alt="Установка сервера Killing Floor"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/killing_floor_setup_4.png"
+              alt="Установка сервера Killing Floor"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/killing_floor_setup_5.png"
+              alt="Установка сервера Killing Floor"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Настройка видимости сервера Killing Floor</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            По-умолчанию ваш сервер не&nbsp;будет виден другим игрокам
+            на&nbsp;вкладке &laquo;Интернет&raquo;. Это связано с&nbsp;тем, что
+            в&nbsp;дистрибутиве сервера используются устаревшие библиотеки.
+            Мы&nbsp;заменим их&nbsp;актуальными библиотеками из&nbsp;steamcmd.
+            Для этого используйте в&nbsp;терминале команды от&nbsp;пользователя
+            kf-user:
+          </p>
+          <pre class="card__code-block">
+mv "/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated
+Server - Linux/System/steamclient.so"
+"/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server
+- Linux/System/steamclient.so.bak"; mv
+"/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server
+- Linux/System/libtier0_s.so"
+"/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server
+- Linux/System/libtier0_s.so.bak"; mv
+"/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server
+- Linux/System/libvstdlib_s.so"
+"/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server
+- Linux/System/libvstdlib_s.so.bak"; ln -s
+~/.local/share/Steam/steamcmd/linux32/steamclient.so
+"/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server
+- Linux/System/steamclient.so"; ln -s
+~/.local/share/Steam/steamcmd/linux32/libtier0_s.so
+"/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server
+- Linux/System/libtier0_s.so"; ln -s
+~/.local/share/Steam/steamcmd/linux32/libvstdlib_s.so
+"/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server
+- Linux/System/libvstdlib_s.so"</pre
+          >
+          <p class="card__paragraph">
+            Теперь наш сервер будет отображаться на&nbsp;вкладке
+            &laquo;Интернет&raquo; у&nbsp;всех владельцев лицензионной версии
+            игры.
+          </p>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/killing_floor_visibility_1.png"
+              alt="Настройка видимости сервера Killing Floor"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Автозапуск сервера</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            Теперь настроим автозапуск нашего сервера. Для этого зайдём на
+            сервер под пользователем root через WinSCP и&nbsp;создадим
+            в&nbsp;папке
+            <span class="card__accent">/etc/systemd/system</span> файл
+            <span class="card__accent">kf-server.service</span>
+            со&nbsp;следующим содержанием:
+          </p>
+          <pre class="card__code-block">
+[Unit]
+Description=Killing Floor Server
+After=network.target
+
+[Service]
+WorkingDirectory=/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server - Linux/System/
+User=kf-user
+Group=kf-user
+Type=idle
+Environment=LD_LIBRARY_PATH=/home/kf-user/.local/share/Steam/steamcmd/linux32/
+ExecStart="/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated Server - Linux/System/ucc-bin" server KF-WestLondon.rom?game=KFmod.KFGameType?VACSecured=true?MaxPlayers=6 -nohomedir
+
+[Install]
+WantedBy=multi-user.target</pre
+          >
+          <p class="card__paragraph">Не&nbsp;забудьте сохранить файл.</p>
+          <p class="card__paragraph">
+            После этого перейдите в&nbsp;powershell под пользователем root и
+            выполните следующую команду:
+          </p>
+          <pre class="card__code-block">systemctl enable kf-server</pre>
+          <p class="card__paragraph">
+            Теперь можно перезагрузить сервер командной
+          </p>
+          <pre class="card__code-block">reboot</pre>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/killing_floor_autorun_1.png"
+              alt="Автозапуск сервера"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/killing_floor_autorun_2.png"
+              alt="Автозапуск сервера"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/killing_floor_autorun_3.png"
+              alt="Автозапуск сервера"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/killing_floor_autorun_4.png"
+              alt="Автозапуск сервера"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Настройка веб-админки Killing Floor</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            Подключитесь к&nbsp;серверу через WinSCP под учётной записью kf-user
+            и откройте файл
+            <span class="card__accent"
+              >/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated
+              Server - Linux/System/KillingFloor.ini</span
+            >.
+          </p>
+          <p class="card__paragraph">
+            Измените в&nbsp;нём значения следующих строк:
+          </p>
+          <pre class="card__code-block">
+[UWeb.WebServer]
+<span class="deleted">bEnabled=False</span>
+bEnabled=True
+
+[Engine.GameReplicationInfo]
+AdminName={Ваш_логин}
+
+[Engine.AccessControl]
+AdminPassword={Ваш_пароль}</pre>
+          <p class="card__paragraph">
+            Теперь вы&nbsp;сможете зайти в&nbsp;веб-админку по&nbsp;адресу
+            http://{ip_адрес_сервера}:8075
+          </p>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/web_panel_1.png"
+              alt="Настройка веб-админки Killing Floor"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/web_panel_2.png"
+              alt="Настройка веб-админки Killing Floor"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/web_panel_3.png"
+              alt="Настройка веб-админки Killing Floor"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Голосование за&nbsp;карты</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            Чтобы разрешить игрокам голосовать за&nbsp;карты и&nbsp;выбирать
+            сложность игры, скачайте
+            <a href="./files/KFMapVote.zip" class="card__link" download
+              >этот архив</a
+            >
+            и&nbsp;поместите файлы из&nbsp;него в&nbsp;папку
+            <span class="card__accent">System</span> внутри папки
+            с&nbsp;сервером Killing Floor.
+          </p>
+          <p class="card__paragraph">
+            Затем откройте файл
+            <span class="card__accent">KillingFloor.ini</span> и&nbsp;измените в
+            нём следующую строку
+          </p>
+          <pre class="card__code-block">
+[Engine.GameInfo]
+<span class="deleted">VotingHandlerType=xVoting.xVotingHandler</span>
+VotingHandlerType=KFMapVoteV2.KFVotingHandler.</pre>
+          <p class="card__paragraph">
+            Теперь вы&nbsp;можете зайти в&nbsp;веб-админку и&nbsp;включить
+            голосование за карты.
+          </p>
+          <p class="card__paragraph">
+            Чтобы игроки могли голосовать за&nbsp;карты, перейдите
+            на&nbsp;вкладку Defaults-&gt;Map Voting и&nbsp;отметьте следующие
+            пункты:
+          </p>
+          <ul class="card__list">
+            <li>Auto Open GUI</li>
+            <li>Default Current GameType</li>
+            <li>Enable Map Voting</li>
+            <li>Use MapLists</li>
+          </ul>
+          <p class="card__paragraph">
+            Затем перейдите на&nbsp;вкладку Voting GameConfig и&nbsp;создайте
+            конфигурацию с&nbsp;нужными параметрами. В пункте Options напишите
+            Difficulty=2.
+          </p>
+          <p>
+            Чтобы дать игрокам возможность выбирать уровень сложности, создайте
+            несколько конфигураций, в Options укажите нужный уровень сложности.
+          </p>
+          <ul class="card__list">
+            <li>1&nbsp;&mdash; Лёгкий</li>
+            <li>2&nbsp;&mdash; Нормальный</li>
+            <li>4&nbsp;&mdash; Сложный</li>
+            <li>5&nbsp;&mdash; Самоубийственный</li>
+            <li>7&nbsp;&mdash; Ад&nbsp;на&nbsp;Земле</li>
+          </ul>
+          <p class="card__paragraph">
+            Список карт, за&nbsp;которые могут голосовать игроки можно настроить
+            на вкладке Maps.
+          </p>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/map_voting_1.png"
+              alt="Голосование за карты Killing Floor"
+              class="swiper-slide"
+            />
+            <img
+              loading="lazy"
+              src="./images/map_voting_2.png"
+              alt="Голосование за карты Killing Floor"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="card__title">Быстрое скачивание карт</h2>
+        <div class="card__text">
+          <p class="card__paragraph">
+            По-умолчанию карты которых нет у&nbsp;игроков скачиваются очень
+            медленно. Чтобы это исправить мы&nbsp;с&nbsp;вами установили
+            apaheserver. Давайте настроим Killing Floor на&nbsp;работу
+            с&nbsp;ним. Откройте файл
+            <span class="card__accent">KillingFloor.ini</span>
+            и&nbsp;измените в нём следующие строки:
+          </p>
+          <pre class="card__code-block">
+[IpDrv.HTTPDownload]
+RedirectToURL=http://{ip_адрес_сервера}
+<span class="deleted">UseCompression=True</span>
+UseCompression=False
+
+[Core.System]
+<span class="deleted">Paths=../Maps/*.rom</span>
+Paths=/var/www/html/*.rom</pre>
+          <p class="card__paragraph">
+            Теперь нужно переместить все карты из&nbsp;папки
+            <span class="card__accent"
+              >/home/kf-user/Steam/steamapps/common/Killing Floor Dedicated
+              Server - Linux/Maps</span
+            >
+            в&nbsp;папку <span class="card__accent">/var/www/html/</span>
+          </p>
+          <p class="card__paragraph">
+            Это можно сделать от&nbsp;пользователя root командной:
+          </p>
+          <pre class="card__code-block">
+mv /home/kf-user/Steam/steamapps/common/Killing\ Floor\ Dedicated\Server\ -\ Linux/Maps/*-*.rom /var/www/html/</pre
+          >
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img
+              src="./images/map_download_1.png"
+              alt="Быстрое скачивание карт Killing Floor"
+              class="swiper-slide"
+            />
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="./vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

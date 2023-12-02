@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "TeXGyreAdventor";
+  src: url("./TeXGyreAdventor/TeXGyreAdventor-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Unutterable";
+  src: url("./Unutterable/Unutterable.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
