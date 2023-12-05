@@ -14,4 +14,4 @@
 
 ---
 
-[Demo](https://kf-ural.ru//)
+[Demo](https://kf-ural.ru/)
